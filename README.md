@@ -1,5 +1,5 @@
 # allauth-jinja
-The complete set of [django-allauth](https://github.com/pennersr/django-allauth)https://github.com/pennersr/django-allauth rewritten in jinja.
+The complete set of [django-allauth](https://github.com/pennersr/django-allauth) templates rewritten in jinja.
 
 ## Installation & Usage
 [not published yet]
