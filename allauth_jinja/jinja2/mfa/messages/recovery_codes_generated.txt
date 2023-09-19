@@ -1,0 +1,1 @@
+{% trans %}A new set of recovery codes has been generated.{% endtrans %}

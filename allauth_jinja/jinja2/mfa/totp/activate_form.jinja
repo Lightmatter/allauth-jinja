@@ -1,0 +1,17 @@
+{% extends "mfa/totp/base.jinja" %}
+{% block content %}
+    <h1>{% trans  %}Activate Authenticator App{% endtrans %}</h1>
+    {{ totp_svg|safe }}
+    <form method="POST" action="{{ url('mfa_activate_totp') }}">
+        {% csrf_token %}
+        <p>
+            <label>{% trans %}Authenticator Secret{% endtrans %}:</label>
+            <input type="text"
+                   disabled="disabled"
+                   value="{{ form.secret }}"
+                   size="{{ form.secret|length }}">
+        </p>
+        {{ form }}
+        <button type="submit">{% trans %}Activate{% endtrans %}</button>
+    </form>
+{% endblock content %}

@@ -1,0 +1,20 @@
+{% extends "account/base.jinja" %}
+
+{% block head_title %}{% trans %}Confirm Access{% endtrans %}{% endblock %}
+
+{% block content %}
+
+<h1>{% trans %}Confirm Access{% endtrans %}</h1>
+
+<p>{% trans %}To safeguard the security of your account, please enter your password:{% endtrans %}</p>
+
+<form class="reauthenticate" method="POST" action="{{ url('account_reauthenticate') }}">
+    {% csrf_token %}
+    {{ form }}
+    {% if redirect_field_value %}
+    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+    {% endif %}
+    <button type="submit">{% trans %}Confirm{% endtrans %}</button>
+</form>
+
+{% endblock %}

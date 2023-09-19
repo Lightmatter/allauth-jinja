@@ -1,0 +1,20 @@
+{% extends "socialaccount/base.jinja" %}
+
+{% block head_title %}{% trans %}Sign In{% endtrans %}{% endblock head_title %}
+
+{% block content %}
+{% if process == "connect" %}
+<h1>{% trans with provider.name as provider %}Connect {{ provider }}{% endtrans %}</h1>
+
+<p>{% trans with provider.name as provider %}You are about to connect a new third party account from {{ provider }}.{% endtrans %}</p>
+{% else %}
+<h1>{% trans with provider.name as provider %}Sign In Via {{ provider }}{% endtrans %}</h1>
+
+<p>{% trans with provider.name as provider %}You are about to sign in using a third party account from {{ provider }}.{% endtrans %}</p>
+{% endif %}
+
+<form method="post">
+  {% csrf_token %}
+  <button type="submit">{% trans %}Continue{% endtrans %}</button>
+</form>
+{% endblock content %}

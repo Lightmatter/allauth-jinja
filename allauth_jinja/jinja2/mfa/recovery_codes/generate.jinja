@@ -1,0 +1,12 @@
+{% extends "mfa/recovery_codes/base.jinja" %}
+{% block content %}
+    <h1>{% trans %}Recovery Codes{% endtrans %}</h1>
+    <p>
+        {% trans %}You are about to generate a new set of recovery codes for your account. This action will invalidate your existing codes. Are you sure?{% endtrans %}
+    </p>
+    <form method="POST" action="{{ url('mfa_generate_recovery_codes') }}">
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit">{% trans %}Generate{% endtrans %}</button>
+    </form>
+{% endblock content %}

@@ -1,0 +1,12 @@
+{% extends "mfa/totp/base.jinja" %}
+{% block content %}
+    <h1>{% trans %}Deactivate Authenticator App{% endtrans %}</h1>
+    <p>
+        {% trans %}You are about to deactivate authenticator app based authentication. Are you sure?{% endtrans %}
+    </p>
+    <form method="POST" action="{{ url('mfa_deactivate_totp') }}">
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit">{% trans %}Deactivate{% endtrans %}</button>
+    </form>
+{% endblock content %}

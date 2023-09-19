@@ -1,0 +1,15 @@
+{% extends "account/base.jinja" %}
+{% block head_title %}
+    {% trans %}Sign In{% endtrans %}
+{% endblock %}
+{% block content %}
+    <h1>{% trans %}Two-Factor Authentication{% endtrans %}</h1>
+    <p>
+        {% trans %}Your account is protected by two-factor authentication. Please enter an authenticator code:{% endtrans %}
+    </p>
+    <form class="authenticate" method="POST" action="{{ url('mfa_authenticate') }}">
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit">{% trans %}Sign In{% endtrans %}</button>
+    </form>
+{% endblock %}

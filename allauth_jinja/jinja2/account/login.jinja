@@ -1,0 +1,46 @@
+{% extends "account/base.jinja" %}
+
+{% block head_title %}{% trans %}Sign In{% endtrans %}{% endblock %}
+
+{% block content %}
+
+<h1>{% trans %}Sign In{% endtrans %}</h1>
+
+{% set socialaccount_providers=get_providers() %}
+
+{% if socialaccount_providers %}
+<p>{% trans site_name=site.name %}Please sign in with one
+    of your existing third party accounts. Or, <a href="{{ signup_url }}">sign up</a>
+    for a {{ site_name }} account and sign in below:{% endtrans %}</p>
+
+<div class="socialaccount_ballot">
+
+    <ul class="socialaccount_providers">
+        {% with process="login" %}
+        {% include "socialaccount/snippets/provider_list.jinja" %}
+        {% endwith %}
+    </ul>
+
+    <div class="login-or">{% trans %}or{% endtrans %}</div>
+
+</div>
+
+{% include "socialaccount/snippets/login_extra.jinja" %}
+
+{% else %}
+<p>{% trans %}If you have not created an account yet, then please
+    <a href="{{ signup_url }}">sign up</a> first.{% endtrans %}
+</p>
+{% endif %}
+
+<form class="login" method="POST" action="{{ url('account_login') }}">
+    {% csrf_token %}
+    {{ form }}
+    {% if redirect_field_value %}
+    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+    {% endif %}
+    <a class="button secondaryAction" href="{{ url('account_reset_password') }}">{% trans %}Forgot Password?{% endtrans %}</a>
+    <button class="primaryAction" type="submit">{% trans %}Sign In{% endtrans %}</button>
+</form>
+
+{% endblock %}

@@ -1,0 +1,1 @@
+{% trans %}Removed email address {{email}}.{% endtrans %}

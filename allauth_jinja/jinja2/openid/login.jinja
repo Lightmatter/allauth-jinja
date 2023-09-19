@@ -1,0 +1,16 @@
+{% extends "openid/base.jinja" %}
+
+{% block head_title %}OpenID Sign In{% endblock head_title %}
+
+{% block content %}
+
+<h1>{% trans %}OpenID Sign In{% endtrans %}</h1>
+
+
+<form id="openid_login_form" class="openid_login" method="post" action="{{ url('openid_login') }}">
+    {% csrf_token %}
+    {{ form }}
+    <button type="submit">Sign In</button>
+</form>
+
+{% endblock content %}

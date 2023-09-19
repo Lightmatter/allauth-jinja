@@ -1,0 +1,19 @@
+{% extends "account/base.html" %}
+
+{% block head_title %}{% trans %}Sign Up{% endtrans %}{% endblock %}
+
+{% block content %}
+<h1>{% trans %}Sign Up{% endtrans %}</h1>
+
+<p>{% trans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endtrans %}</p>
+
+<form class="signup" id="signup_form" method="post" action="{{ url('account_signup') }}">
+  {% csrf_token %}
+  {{ form }}
+  {% if redirect_field_value %}
+  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+  {% endif %}
+  <button type="submit">{% trans %}Sign Up{% endtrans %} &raquo;</button>
+</form>
+
+{% endblock %}

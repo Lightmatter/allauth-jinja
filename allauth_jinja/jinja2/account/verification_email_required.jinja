@@ -1,0 +1,23 @@
+{% extends "account/base.html" %}
+
+{% block head_title %}{% trans  %}Verify Your Email Address{% endtrans %}{% endblock %}
+
+{% block content %}
+<h1>{% trans %}Verify Your Email Address{% endtrans %}</h1>
+
+{% set email_url=url('account_email') %}
+
+<p>{% trans %}This part of the site requires us to verify that
+    you are who you claim to be. For this purpose, we require that you
+    verify ownership of your email address. {% endtrans %}</p>
+
+<p>{% trans %}We have sent an email to you for
+    verification. Please click on the link inside that email. If you do not see the verification email in your main
+    inbox, check your spam folder. Otherwise
+    contact us if you do not receive it within a few minutes.{% endtrans %}</p>
+
+<p>{% trans %}<strong>Note:</strong> you can still <a href="{{ email_url }}">change your email address</a>.{%
+    endtrans %}</p>
+
+
+{% endblock %}

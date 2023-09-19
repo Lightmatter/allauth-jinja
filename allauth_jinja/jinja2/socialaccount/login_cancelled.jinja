@@ -1,0 +1,13 @@
+{% extends "socialaccount/base.jinja" %}
+
+{% block head_title %}{% trans %}Login Cancelled{% endtrans %}{% endblock head_title %}
+
+{% block content %}
+
+<h1>{% trans %}Login Cancelled{% endtrans %}</h1>
+
+{% set login_url=url('account_login') %}
+
+<p>{% trans %}You decided to cancel logging in to our site using one of your existing accounts. If this was a mistake, please proceed to <a href="{{login_url}}">sign in</a>.{% endtrans %}</p>
+
+{% endblock content %}

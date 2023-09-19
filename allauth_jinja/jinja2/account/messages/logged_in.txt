@@ -1,0 +1,3 @@
+{% with name=user_display(request.user) %}
+{% trans %}Successfully signed in as {{name}}.{% endtrans %} 
+{% endwith %}

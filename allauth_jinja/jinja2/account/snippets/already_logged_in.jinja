@@ -1,0 +1,2 @@
+{% with user_display=user_display(request.user) %}
+<p><strong>{% trans %}Note{% endtrans %}:</strong> {% trans %}you are already logged in as {{ user_display }}.{% endtrans %}</p>

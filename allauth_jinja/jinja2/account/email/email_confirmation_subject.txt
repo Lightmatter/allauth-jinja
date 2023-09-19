@@ -1,0 +1,5 @@
+
+{% autoescape off %}
+{% trans %}Please Confirm Your E-mail Address{% endtrans %}
+{% endautoescape %}
+

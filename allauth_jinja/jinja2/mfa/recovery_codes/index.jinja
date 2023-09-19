@@ -1,0 +1,22 @@
+{% extends "mfa/recovery_codes/base.jinja" %}
+{% block content %}
+    <h1>{% trans %}Recovery Codes{% endtrans %}</h1>
+    <p>
+        {% trans unused_count=unused_codes|length %}There is {{ unused_count }} out of {{ total_count }} recovery codes available.{% pluralize %}There are {{ unused_count }} out of {{ total_count }} recovery codes available.{% endtrans %}
+    </p>
+    {% if unused_codes %}
+        <textarea class="recovery-codes" rows="{{ unused_codes|length }}" readonly>{% for code in unused_codes %}{{ code }}
+{% endfor %}
+</textarea>
+    {% endif %}
+    <ul class="actions">
+        {% if unused_codes %}
+            <li>
+                <a href="{{ url('mfa_download_recovery_codes') }}">{% trans %}Download codes{% endtrans %}</a>
+            </li>
+        {% endif %}
+        <li>
+            <a href="{{ url('mfa_generate_recovery_codes') }}">{% trans %}Generate new codes{% endtrans %}</a>
+        </li>
+    </ul>
+{% endblock content %}
