@@ -1,49 +1,47 @@
 {% extends "account/base.jinja" %}
 {% block head_title %}
-{% trans %}Two-Factor Authentication{% endtrans %}
+    {% trans %}Two-Factor Authentication{% endtrans %}
 {% endblock head_title %}
 {% block content %}
-<h1>{% trans %}Two-Factor Authentication{% endtrans %}</h1>
-<section class="totp">
-    <h2>{% trans %}Authenticator App{% endtrans %}</h2>
-    {% if authenticators.totp %}
-    <p>{% trans %}Authentication using an authenticator app is active.{% endtrans %}</p>
-    <ul class="actions">
-        <li>
-            <a href="{{ url('mfa_deactivate_totp') }}">{% trans %}Deactivate{% endtrans %}</a>
-        </li>
-    </ul>
-    {% else %}
-    <p>{% trans %}An authenticator app is not active.{% endtrans %}</p>
-    <ul class="actions">
-        <li>
-            <a href="{{ url('mfa_activate_totp') }}">{% trans %}Activate{% endtrans %}</a>
-        </li>
-    </ul>
-    {% endif %}
-</section>
-<section class="recovery_codes">
-    <h2>{% trans%}Recovery Codes{% endtrans %}</h2>
-    {% if authenticators.recovery_codes %}
-    <p>
-        {% trans total_count=authenticators.recovery_codes.generate_codes|length, 
-        unused_count=authenticators.recovery_codes.get_unused_codes|length %}There is {{ unused_count }} out of {{
-        total_count }} recovery codes available.{% pluralize %}There are {{ unused_count }} out of {{ total_count }}
-        recovery codes available.{% endtrans %}
-    </p>
-    <ul class="actions">
-        <li>
-            <a href="{{ url('mfa_view_recovery_codes') }}">{% trans %}View Codes{% endtrans %}</a>
-        </li>
-        <li>
-            <a href="{{ url('mfa_download_recovery_codes') }}">{% trans %}Download Codes{% endtrans %}</a>
-        </li>
-        <li>
-            <a href="{{ url('mfa_generate_recovery_codes') }}">{% trans %}Generate New Codes{% endtrans %}</a>
-        </li>
-    </ul>
-    {% else %}
-    <p>{% trans %}No recovery codes set up.{% endtrans %}</p>
-    {% endif %}
-</section>
+    <h1>{% trans %}Two-Factor Authentication{% endtrans %}</h1>
+    <section class="totp">
+        <h2>{% trans %}Authenticator App{% endtrans %}</h2>
+        {% if authenticators.totp %}
+            <p>{% trans %}Authentication using an authenticator app is active.{% endtrans %}</p>
+            <ul class="actions">
+                <li>
+                    <a href="{{ url('mfa_deactivate_totp') }}">{% trans %}Deactivate{% endtrans %}</a>
+                </li>
+            </ul>
+        {% else %}
+            <p>{% trans %}An authenticator app is not active.{% endtrans %}</p>
+            <ul class="actions">
+                <li>
+                    <a href="{{ url('mfa_activate_totp') }}">{% trans %}Activate{% endtrans %}</a>
+                </li>
+            </ul>
+        {% endif %}
+    </section>
+    <section class="recovery_codes">
+        <h2>{% trans%}Recovery Codes{% endtrans %}</h2>
+        {% if authenticators.recovery_codes %}
+            <p>
+                {% trans total_count=authenticators.recovery_codes.generate_codes|length, 
+                unused_count=authenticators.recovery_codes.get_unused_codes|length %}There is {{ unused_count }} out of {{ total_count }} recovery codes available.{% pluralize %}There are {{ unused_count }} out of {{ total_count }} recovery codes available.{% endtrans %}
+            </p>
+            <ul class="actions">
+                <li>
+                    <a href="{{ url('mfa_view_recovery_codes') }}">{% trans %}View Codes{% endtrans %}</a>
+                </li>
+                <li>
+                    <a href="{{ url('mfa_download_recovery_codes') }}">{% trans %}Download Codes{% endtrans %}</a>
+                </li>
+                <li>
+                    <a href="{{ url('mfa_generate_recovery_codes') }}">{% trans %}Generate New Codes{% endtrans %}</a>
+                </li>
+            </ul>
+        {% else %}
+            <p>{% trans %}No recovery codes set up.{% endtrans %}</p>
+        {% endif %}
+    </section>
 {% endblock content %}
