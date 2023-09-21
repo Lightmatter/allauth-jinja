@@ -21,6 +21,7 @@ In your templates settings for jinja you must have at least the following
   "OPTIONS": {
     "match_extension": None,
     "app_dirname": "jinja2",
+    "undefined": "jinja2.Undefined",
     "context_processors": [
       "django.template.context_processors.request",
       "django.contrib.messages.context_processors.messages",
