@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "allauth-jinja"
-version = "0.0.2"
+version = "0.0.3"
 description = ""
 authors = ["Eddie Cohen <eddie@lightmatter.com>"]
 readme = "README.md"
