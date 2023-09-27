@@ -4,13 +4,13 @@
 
 {% block content %}
 {% if process == "connect" %}
-<h1>{% trans with provider.name as provider %}Connect {{ provider }}{% endtrans %}</h1>
+<h1>{% trans provider=provider.name %}Connect {{ provider }}{% endtrans %}</h1>
 
-<p>{% trans with provider.name as provider %}You are about to connect a new third party account from {{ provider }}.{% endtrans %}</p>
+<p>{% trans provider=provider.name %}You are about to connect a new third party account from {{ provider }}.{% endtrans %}</p>
 {% else %}
-<h1>{% trans with provider.name as provider %}Sign In Via {{ provider }}{% endtrans %}</h1>
+<h1>{% trans provider=provider.name %}Sign In Via {{ provider }}{% endtrans %}</h1>
 
-<p>{% trans with provider.name as provider %}You are about to sign in using a third party account from {{ provider }}.{% endtrans %}</p>
+<p>{% trans provider=provider.name %}You are about to sign in using a third party account from {{ provider }}.{% endtrans %}</p>
 {% endif %}
 
 <form method="post">

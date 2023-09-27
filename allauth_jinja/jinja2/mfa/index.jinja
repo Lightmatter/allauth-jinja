@@ -1,4 +1,4 @@
-{% extends "account/base.html" %}
+{% extends "account/base.jinja" %}
 {% block head_title %}
     {% trans %}Two-Factor Authentication{% endtrans %}
 {% endblock head_title %}
@@ -26,7 +26,8 @@
         <h2>{% trans%}Recovery Codes{% endtrans %}</h2>
         {% if authenticators.recovery_codes %}
             <p>
-                {% trans total_count=authenticators.recovery_codes.generate_codes|length unused_count=authenticators.recovery_codes.get_unused_codes|length %}There is {{ unused_count }} out of {{ total_count }} recovery codes available.{% pluralize %}There are {{ unused_count }} out of {{ total_count }} recovery codes available.{% endtrans %}
+                {% trans total_count=authenticators.recovery_codes.generate_codes|length, 
+                unused_count=authenticators.recovery_codes.get_unused_codes|length %}There is {{ unused_count }} out of {{ total_count }} recovery codes available.{% pluralize %}There are {{ unused_count }} out of {{ total_count }} recovery codes available.{% endtrans %}
             </p>
             <ul class="actions">
                 <li>
@@ -36,7 +37,7 @@
                     <a href="{{ url('mfa_download_recovery_codes') }}">{% trans %}Download Codes{% endtrans %}</a>
                 </li>
                 <li>
-                    <a href="{{ url('mfa_generate_recovery_codes') }}">{% trans %}Generate New Codes</a>
+                    <a href="{{ url('mfa_generate_recovery_codes') }}">{% trans %}Generate New Codes{% endtrans %}</a>
                 </li>
             </ul>
         {% else %}
