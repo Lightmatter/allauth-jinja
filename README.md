@@ -6,7 +6,10 @@
 The complete set of [django-allauth](https://github.com/pennersr/django-allauth) templates rewritten in jinja.
 
 ## Installing
-```pip install allauth-jinja```
+
+```
+pip install allauth-jinja
+```
 
 ## Quick Start
 Add allauth_jinja to your installed apps above allauth, e.g.
