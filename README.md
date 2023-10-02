@@ -12,7 +12,7 @@ pip install allauth-jinja
 ```
 
 ## Quick Start
-Add allauth_jinja to your installed apps above allauth, e.g.
+Add `allauth_jinja` to your installed apps above allauth, e.g.
 ```
 INSTALLED_APPS = [
   ...
@@ -22,7 +22,7 @@ INSTALLED_APPS = [
 ]
 ```
 
-In your templates settings for jinja you must have at least the following
+In your [templates settings](https://niwi.nz/django-jinja/latest/#_quick_start) for jinja you must have at least the following
 ```
 {
   "APP_DIRS": True,
